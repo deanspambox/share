@@ -1,0 +1,4 @@
+- [ ] KeePass
+- [ ] Firefox
+- [ ] VS Code
+- [ ] 
