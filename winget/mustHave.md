@@ -1,4 +1,4 @@
 - [ ] KeePass
 - [ ] Firefox
 - [ ] VS Code
-- [ ] 
+- [ ] next
