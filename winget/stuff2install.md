@@ -1,8 +1,12 @@
 # Stuff to install 
-```powershell
-winget upgrade # List upgrades
+```cmd
+winget upgrade 
 winget upgrade --all
 winget install DominikReichl.KeePass
 winget install Mozilla.Firefox
-
+winget install RevoUninstaller.RevoUninstaller
+winget install CodeSector.TeraCopy
+winget install WinSCP.WinSCP
+winget install Microsoft.VisualStudioCode
+winget install 7zip.7zip
 ```
