@@ -4,6 +4,8 @@
 
 clear
 
+$FormatEnumerationLimit = -1 
+
 function date { (Get-Date).ToShortDateString() }
 function time { Get-Date -Format 'HH:mm:ss' }
 function uptime { ((get-date) - (gcim Win32_OperatingSystem).LastBootUptime).ToString() }
