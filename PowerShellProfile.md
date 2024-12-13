@@ -1,10 +1,27 @@
 
 ```powershell
-# New-Item -Path $PROFILE -Type File -Force
-
 clear
 
+# Set-ExecutionPolicy unrestricted
+# Install-Module PSColor
+Import-Module PSColor
+
+
 $FormatEnumerationLimit = -1 
+
+# Set some command Defaults 
+
+$PSDefaultParameterValues = @{
+    "*:autosize"                    = $true 
+    'Receive-Job:keep'              = $true 
+    '*:Wrap'                        = $true
+    "*-Csv:Delimiter"               = ";"
+    "*-Csv:NoTypeInformation"       = $true
+    "*-Csv:NoClobber"               = $true
+  } 
+
+#Alias
+Set-Alias gh    Get-Help 
 
 function date { (Get-Date).ToShortDateString() }
 function time { Get-Date -Format 'HH:mm:ss' }
@@ -29,7 +46,6 @@ function prompt {
     return ' '
 }
 
-function date { (Get-Date).ToShortDateString() }
 
 
 #function prompt {
@@ -46,5 +62,37 @@ function tail {
 function md5 { Get-FileHash -Algorithm MD5 $args | FL }
 function sha1 { Get-FileHash -Algorithm SHA1 $args | FL }
 function sha256 { Get-FileHash -Algorithm SHA256 $args | FL }
+
+$global:PSColor = @{
+    File = @{
+        Default    = @{ Color = 'White' }
+        Directory  = @{ Color = 'Cyan'}
+        Hidden     = @{ Color = 'DarkGray'; Pattern = '^\.' } 
+        Code       = @{ Color = 'Magenta'; Pattern = '\.(java|c|cpp|cs|js|css|html)$' }
+        Executable = @{ Color = 'Red'; Pattern = '\.(exe|bat|cmd|py|pl|ps1|psm1|vbs|rb|reg)$' }
+        Text       = @{ Color = 'Yellow'; Pattern = '\.(txt|cfg|conf|ini|csv|log|config|xml|yml|md|markdown)$' }
+        Compressed = @{ Color = 'Green'; Pattern = '\.(zip|tar|gz|rar|jar|war)$' }
+    }
+    Service = @{
+        Default = @{ Color = 'White' }
+        Running = @{ Color = 'DarkGreen' }
+        Stopped = @{ Color = 'DarkRed' }     
+    }
+    Match = @{
+        Default    = @{ Color = 'White' }
+        Path       = @{ Color = 'Cyan'}
+        LineNumber = @{ Color = 'Yellow' }
+        Line       = @{ Color = 'White' }
+    }
+	NoMatch = @{
+        Default    = @{ Color = 'White' }
+        Path       = @{ Color = 'Cyan'}
+        LineNumber = @{ Color = 'Yellow' }
+        Line       = @{ Color = 'White' }
+    }
+}
+
+#E.g. if you would like to override the red color for Executables, in favour of blue; you could add the following to your PowerShell profile:
+$global:PSColor.File.Executable.Color = 'Blue'
 
 ```
