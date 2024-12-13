@@ -9,4 +9,5 @@ winget install CodeSector.TeraCopy
 winget install WinSCP.WinSCP
 winget install Microsoft.VisualStudioCode
 winget install 7zip.7zip
+winget install Microsoft.PowerShell
 ```
