@@ -49,3 +49,5 @@ Answer
 
 Product
     Privileged Access Manager (PAM, self-hosted);Privilege Cloud
+
+https://community.cyberark.com/s/article/Understanding-the-possible-One-Time-Password-Exclusive-and-Allow-Manual-Change-combinations
